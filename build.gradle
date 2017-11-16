@@ -1,0 +1,32 @@
+group 'com.lawrencemouarkach'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'groovy'
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+    jcenter()
+}
+
+def jme3 = [v:'3.1.0-stable', g:'org.jmonkeyengine']
+dependencies {
+    compile 'org.codehaus.groovy:groovy-all:2.3.11'
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+
+    compile "${jme3.g}:jme3-core:${jme3.v}"
+    compile group: 'org.jmonkeyengine', name: 'jme3-plugins', version: '3.1.0-stable'
+    compile group: 'org.jmonkeyengine', name: 'jme3-bullet-native', version: '3.1.0-stable'
+    compile group: 'org.jmonkeyengine', name: 'jme3-bullet', version: '3.1.0-stable'
+    compile group: 'org.jmonkeyengine', name: 'jme3-terrain', version: '3.1.0-stable'
+    compile group: 'org.jmonkeyengine', name: 'jme3-effects', version: '3.1.0-stable'
+    compile group: 'org.jmonkeyengine', name: 'jme3-lwjgl', version: '3.1.0-stable'
+    compile group: 'org.jmonkeyengine', name: 'jme3-jogl', version: '3.1.0-stable'
+    compile group: 'org.jmonkeyengine', name: 'jme3-jogg', version: '3.1.0-stable'
+//    compile group: 'org.jmonkeyengine', name: 'jme3-examples', version: '3.1.0-stable'
+
+    runtime "${jme3.g}:jme3-desktop:${jme3.v}"
+    runtime "${jme3.g}:jme3-lwjgl:${jme3.v}"
+}
